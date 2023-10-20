@@ -1,0 +1,36 @@
+{% extends 'adminbase.html' %}
+{% block body %} 
+
+<div style="width:80%;margin : auto;">
+<h1>Contact List</h1>
+
+{% if contactlist %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in contactlist %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.subject}}</td>
+        <td>{{item.message}}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No Data avaiable</h3>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% load static %}
+<!-- ======= Hero Section ======= -->
+<div id="hero" class="hero route bg-image" style="background-image: url({{profile.background_pic.url}})">
+    <div class="overlay-itro"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <!--<p class="display-6 color-d">Hello, world!</p>-->
+          <h1 class="hero-title mb-4">{{profile.short_bio}}</h1>
+          <p class="hero-subtitle"><span class="typed" data-typed-items="{{profile.designation}}"></span></p>
+          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+          <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" role="button" href="{{profile.cv.url}}">Download my CV</a></p>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Hero Section -->

@@ -1,0 +1,12 @@
+{% load static %}
+<div class="skill-mf">
+  <p class="title-s">Skill</p>
+  {% for sk in skill %}
+    <span>{{sk.skill_type}}</span> <span class="pull-right">{{sk.skill_percentage}}</span>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: {{sk.skill_percentage}};"></div>
+    </div>
+  {% endfor %}
+ 
+</div>
+</div>

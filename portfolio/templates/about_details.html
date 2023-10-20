@@ -1,0 +1,29 @@
+{% extends 'adminbase.html' %} {% block content%}
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Profile pic</th>
+        <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Long Details</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.profile_pic}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.designation}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone_number}}</td>
+        <td>{{item.long_details}}</td>
+        <td><a href="{% url 'edit_about' pk=item.id %}" class='btn btn-warning btn-sm' >Edit</a> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  {% endblock %}

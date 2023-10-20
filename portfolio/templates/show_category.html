@@ -1,0 +1,37 @@
+{% extends 'adminbase.html' %}
+{% block body %} 
+
+<div style="width:80%;margin : auto;">
+<h1>Category</h1>
+
+{% if categorylist %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Slug</th>
+        <th scope="col">description</th>
+        <th scope="col">Category Image</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in categorylist %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.category_name}}</td>
+        <td>{{item.slug}}</td>
+        <td>{{item.description}}</td>
+        <td><img src="{{ item.cat_image.url }}" height="100" width="100"/></td>
+        <td><a href="{% url 'edit_category' pk=item.id %}" class='btn btn-warning btn-sm' >Edit</a> <a class='btn btn-danger btn-sm' href="{% url 'delete_category' pk=item.id %}">Delete</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No Data avaiable</h3>
+  {% endif %}
+</div>
+
+{% endblock %}

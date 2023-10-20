@@ -1,0 +1,38 @@
+{% load static %}
+  <!-- ======= Blog Section ======= -->
+  <section id="blog" class="blog-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Blog
+            </h3>
+            <p class="subtitle-a">
+              From basics to expert analysis, these blogs can help keep you informed on the latest marketing developments.
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for bg in blog %}
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="{% url 'blog_details' bg.slug %}"><img src="{{bg.image.url}}" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              
+              <h3 class="card-title"><a href="{% url 'blog_details' bg.slug%}">{{bg.name}}</a></h3>
+              <p class="card-description">
+                {{bg.short_description}}
+              </p>
+              <p> Published: {{bg.created_date}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- End Blog Section -->

@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+{% block body %} 
+
+<div style="width:80%;margin : auto;">
+<h1>Projects</h1>
+
+{% if projectslist %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Project Title</th>
+        <th scope="col">Slug</th>
+        <th scope="col">Description</th>
+        <th scope="col">Tech Stack</th>
+        <th scope="col">Project URL</th>
+        <th scope="col">Project Image</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in projectslist %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.project_title}}</td>
+        <td>{{item.slug}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.technologies_used}}</td>
+        <td>{{item.project_url}}</td>
+        <td><img src="{{ item.screenshots.url }}" height="100" width="100"/></td>
+        <td><a href="{% url 'edit_projects' pk=item.id %}" class='btn btn-warning btn-sm' >Edit</a> <a class='btn btn-danger btn-sm' href="{% url 'delete_projects' pk=item.id %}">Delete</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No Data avaiable</h3>
+  {% endif %}
+</div>
+
+{% endblock %}

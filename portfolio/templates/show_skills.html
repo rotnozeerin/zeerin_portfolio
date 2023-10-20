@@ -1,0 +1,33 @@
+{% extends 'adminbase.html' %}
+{% block body %} 
+
+<div style="width:80%;margin : auto;">
+<h1>Skills</h1>
+
+{% if skillslist %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Skill Type</th>
+        <th scope="col">Skill Percentage</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in skillslist %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.skill_type}}</td>
+        <td>{{item.skill_percentage}}</td>
+        <td><a href="{% url 'edit_skills' pk=item.id %}" class='btn btn-warning btn-sm' >Edit</a> <a class='btn btn-danger btn-sm' href="{% url 'delete_skills' pk=item.id %}">Delete</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No Data avaiable</h3>
+  {% endif %}
+</div>
+
+{% endblock %}

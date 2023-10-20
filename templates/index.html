@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+  
+  {% include 'includes/profile.html' %}
+  <main id="main">
+
+    {% include 'includes/about.html' %}
+
+    {% include 'includes/proficiency.html' %}
+
+    {% include 'includes/portfolio.html' %}
+    
+    {% include 'includes/blog.html' %}
+  
+    {% include 'includes/contact.html' %}
+   
+
+  </main><!-- End #main -->
+
+  
+  {% endblock %}

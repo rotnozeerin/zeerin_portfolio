@@ -1,0 +1,37 @@
+{% extends 'adminbase.html' %}
+{% block body %} 
+
+<div style="width:80%;margin : auto;">
+<h1>Resume</h1>
+
+{% if resume %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Short Bio</th>
+        <th scope="col">Designation</th>
+        <th scope="col">CV</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in resume %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.short_bio}}</td>
+        <td>{{item.designation}}</td>
+        <td><a href="{{ item.cv.url }}" target="_blank">Show CV</a></td>
+        <td><a href="{% url 'edit_resume' pk=item.id %}" class='btn btn-warning btn-sm' >Edit</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No Data avaiable</h3>
+  {% endif %}
+</div>
+
+{% endblock %}
